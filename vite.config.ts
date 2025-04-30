@@ -12,15 +12,37 @@ export default defineConfig({
       registerType: 'autoUpdate',
       manifest: {
         name: 'Drink Builder',
-        short_name: 'Drink Builder',
+        short_name: 'Dbuilder',
         theme_color: '#ffffff',
-        // icons: [
-        //   {
-        //     src: './assets/icon-192x192.png',
-        //     sizes: '192x192',
-        //     type: 'image/png',
-        //   },
-        // ],
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#FFFFFF',
+        icons: [
+          {
+            src: '/pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: '/pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: '/pwa-maskable-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+          {
+            src: '/pwa-maskable-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
       },
     }),
   ],

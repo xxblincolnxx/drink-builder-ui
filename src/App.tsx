@@ -6,6 +6,7 @@ function App() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
+
   return (
     <>
       <h1>Hello world</h1>
