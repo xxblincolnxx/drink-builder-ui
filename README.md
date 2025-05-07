@@ -19,12 +19,20 @@ NOTE: There's no hot-reload.
 - [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview) for mutations
 - [TanStack Router](https://tanstack.com/router/latest/docs/framework/react/overview) for routing
 
-# Using React Query (TanStack)
+## Using IndexedDB (via Dexie)
 
+- **IMPORTANT:** The localDB is the single source of truth for the UI application state. The server endpoints are used strictly for auth and synching data that is backed up on the cloud.
+- Each store gets a service.ts and DTO.ts in its own folder under `src/utilities/localDB`
+  - Service: Functions for applying changes to IndexedDB via Dexie
+  - DTO: Type definitions for each Store and the arguments for each service function.
+
+## Using React Query (TanStack)
+
+- TanStack queries are strictly used to synchronize the Server DB and the
 - Create your queries inside of `src/utilities/queries` directory as stand along `.ts` files
 - Add specific query configurations inside of `src/utilities/queries/queryOptions.ts` which will be consumed within components with `useQuery(<options>)`
 
-# Using State Management (Zustand)
+## Using State Management (Zustand)
 
 - Create a store for each domain of state within `src/utilities/zustand`
 - Direct mutation of state is possible using Immer middleware so import and wrap your store in `immer({<your state>})`
