@@ -11,7 +11,7 @@ Toggle offline mode through "application" tab and service worker location inside
 
 NOTE: There's no hot-reload.
 
-# ThisTech Stack (where to read):
+# This Tech Stack (where to read):
 
 - [vite-pwa-plugin](https://vite-pwa-org.netlify.app/guide/) for the service worker
 - [Dexie](https://dexie.org/docs/Tutorial/React) for an interface layer for IndexedDB (offline persistence)
