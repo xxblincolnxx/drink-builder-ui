@@ -1,8 +1,8 @@
 import { localDB } from '../db';
 import { v4 as uuidv4 } from 'uuid';
-import { User } from './dto';
+import { CreateUserDTO, User } from './dto';
 
-export const createUser = async (user: Partial<User>): Promise<User> => {
+export const createUser = async (user: CreateUserDTO): Promise<User> => {
   if (!user.username) {
     return Promise.reject(new Error('Invalid user data'));
   }
@@ -16,8 +16,8 @@ export const createUser = async (user: Partial<User>): Promise<User> => {
     email: user.email,
     lastSynced: timestamp,
     createdAt: timestamp,
-    role: user.role || 'employee',
-    preferences: user.preferences || { theme: 'light' },
+    role: user.role,
+    preferences: user.preferences,
   };
   await localDB.user.add(newUser);
   return newUser;

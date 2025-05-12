@@ -1,4 +1,4 @@
-import { localDB } from './localDB/db';
+import { localDB } from '../localDB/db';
 
 export async function devResetDB() {
   if (import.meta.env.DEV) {

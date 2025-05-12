@@ -1,24 +1,40 @@
-export interface User {
-  id: string;
-  username: string;
-  first_name?: string;
-  last_name?: string;
-  email?: string;
-  lastSynced: Date;
-  createdAt: Date;
-  role: Roles;
-  preferences: UserPreferences;
-}
+import { z } from 'zod';
 
-export interface CreateUserDTO {
-  username: string;
-  first_name?: string;
-  last_name?: string;
-  email?: string;
-}
+export const RolesSchema = z.enum([
+  'admin',
+  'manager',
+  'employee',
+  'unassigned',
+]);
 
-export type Roles = 'admin' | 'manager' | 'employee' | 'unassigned';
+export const UserPreferencesSchema = z.object({
+  theme: z.enum(['light', 'dark']),
+});
 
-export interface UserPreferences {
-  theme: 'light' | 'dark';
-}
+export const UserSchema = z.object({
+  id: z.string(),
+  username: z.string(),
+  first_name: z.string().optional(),
+  last_name: z.string().optional(),
+  email: z.string().optional(),
+  lastSynced: z.date(),
+  createdAt: z.date(),
+  role: RolesSchema,
+  preferences: UserPreferencesSchema,
+});
+
+export const CreateUserDTOSchema = z.object({
+  username: z.string(),
+  first_name: z.string().optional(),
+  last_name: z.string().optional(),
+  email: z.string().optional(),
+  preferences: UserPreferencesSchema.optional().default({
+    theme: 'light',
+  }),
+  role: RolesSchema.optional().default('unassigned'),
+});
+
+export type Roles = z.infer<typeof RolesSchema>;
+export type UserPreferences = z.infer<typeof UserPreferencesSchema>;
+export type User = z.infer<typeof UserSchema>;
+export type CreateUserDTO = z.infer<typeof CreateUserDTOSchema>;
