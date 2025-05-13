@@ -1,3 +1,4 @@
+import Toast from '../components/Toast';
 import Welcome from './Welcome';
 
 const GlobalWrapper = () => {
@@ -5,7 +6,8 @@ const GlobalWrapper = () => {
     <>
       <header>THIS IS MY HEADER</header>
       <nav>THIS IS MY NAV</nav>
-      <main>
+      <main className='p-5'>
+        <Toast />
         <Welcome />
       </main>
     </>

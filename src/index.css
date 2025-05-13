@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/*
+Custom Colors For Theme:
+
+*/
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,4 +17,53 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.primary-btn {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.secondary-btn {
+  @apply bg-gray-500 text-white font-bold py-2 px-4 rounded;
+}
+.link-btn {
+  @apply text-blue-500 font-bold py-2 px-4 rounded;
+}
+
+.form-element {
+  @apply p-2 flex flex-col align-middle justify-center items-center;
+}
+.form-input {
+  @apply border border-gray-300 rounded-md p-2;
+}
+
+.toast {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  z-index: 1000;
+}
+
+.toast-fade {
+  opacity: 0;
+}
+
+.toast-warn {
+  background-color: #facc15;
+  color: black;
+}
+
+.toast-error {
+  background-color: #ef4444;
+}
+
+.toast-success {
+  background-color: #22c55e;
 }

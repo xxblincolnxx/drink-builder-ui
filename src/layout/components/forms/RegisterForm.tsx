@@ -1,12 +1,14 @@
 type props = {
-  toggleLogin: () => void;
+  toggleForm: () => void;
 };
 
-const RegisterForm = ({ toggleLogin }: props) => {
+const RegisterForm = ({ toggleForm }: props) => {
   return (
     <div>
       <p>Register Form</p>
-      <button onClick={toggleLogin}>Toggle</button>
+      <button className='secondary-btn' onClick={toggleForm}>
+        Login
+      </button>
     </div>
   );
 };

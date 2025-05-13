@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <GlobalWrapper></GlobalWrapper>
+      <GlobalWrapper />
     </>
   );
 }

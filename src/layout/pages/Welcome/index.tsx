@@ -7,9 +7,9 @@ const Welcome = () => {
   return (
     <div>
       {isRegistering ? (
-        <RegisterForm toggleLogin={() => setIsRegistering(!isRegistering)} />
+        <RegisterForm toggleForm={() => setIsRegistering(!isRegistering)} />
       ) : (
-        <LoginForm toggleLogin={() => setIsRegistering(!isRegistering)} />
+        <LoginForm toggleForm={() => setIsRegistering(!isRegistering)} />
       )}
     </div>
   );
