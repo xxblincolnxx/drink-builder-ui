@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import useToastState from '../../../core/zustand/GlobalToastState';
+import { v4 as uuidV4 } from 'uuid';
 
 type LoginFormProps = {
   toggleForm: () => void;
@@ -16,6 +18,11 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const LoginForm = ({ toggleForm }: LoginFormProps) => {
+  // toast state
+  const addToastToQueue = useToastState(
+    (state) => state.actions.addToastToQueue
+  );
+
   const {
     register,
     handleSubmit,
@@ -24,7 +31,23 @@ const LoginForm = ({ toggleForm }: LoginFormProps) => {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = (data: LoginFormValues) => {
+  const onSubmit = async (data: LoginFormValues) => {
+    try {
+      // TODO: Hook this up to Dexie and API
+      // simulate response delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      addToastToQueue({
+        id: uuidV4(),
+        toastType: 'success',
+        message: 'Login successful',
+      });
+    } catch {
+      addToastToQueue({
+        id: uuidV4(),
+        toastType: 'warn',
+        message: 'An error occurred while logging in',
+      });
+    }
     console.log(data);
   };
 

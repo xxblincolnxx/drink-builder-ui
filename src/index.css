@@ -1,8 +1,12 @@
 @import 'tailwindcss';
 
 /*
-Custom Colors For Theme:
-
+Custom Colors Available From Config:
+  primary: '#1DA1F2',
+  secondary: '#14171A',
+  accent: '#657786',
+  background: '#F5F8FA',
+  text: '#14171A',
 */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

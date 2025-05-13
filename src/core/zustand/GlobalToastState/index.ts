@@ -7,7 +7,7 @@ const initialState: ToastState = {
   toastQueue: [],
 };
 
-// reducer functions
+// --- Reducers ---
 const handleAddToQueue = (state: ToastState, payload: Toast) => {
   state.toastQueue.push(payload);
 };
